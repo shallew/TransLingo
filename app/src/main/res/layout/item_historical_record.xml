@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="translatedResult"
+            type="com.example.translate.model.repository.TranslateResultEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/shape_historical_record_border"
+        android:paddingStart="5dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="6dp">
+        <!--            android:text="@{translatedResult._query}"-->
+        <TextView
+            android:id="@+id/original_text_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{translatedResult._query}"
+            app:layout_constraintEnd_toStartOf="@id/historical_language_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/translated_text_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{translatedResult.translation}"
+            android:textColor="#166fd6"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/historical_language_tv"
+            app:layout_constraintStart_toStartOf="@id/original_text_tv"
+            app:layout_constraintTop_toBottomOf="@id/original_text_tv" />
+
+        <TextView
+            android:id="@+id/translated_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{translatedResult.translatedTime}"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/original_text_tv"
+            app:layout_constraintTop_toBottomOf="@id/translated_text_tv" />
+
+        <ImageView
+            android:id="@+id/historical_delete_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:padding="10dp"
+            android:src="@drawable/icon_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/historical_language_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxWidth="130dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/historical_delete_iv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

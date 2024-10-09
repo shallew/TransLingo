@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="word"
+            type="String" />
+        <variable
+            name="definition"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@drawable/shape_english_background">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/popup_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="20sp"
+            android:textColor="#16d9e3"
+            android:text="@{word}"
+            android:textStyle="bold|italic" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/popup_definition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/popup_word"
+            android:text="@{definition}"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="inputText"
+            type="String" />
+
+        <variable
+            name="outputText"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="start|top"
+                android:hint="@string/start_type_in"
+                android:lines="5"
+                android:paddingBottom="40dp"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/result_for_translate"
+            style="@style/MyTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/shape_result_backgroud_color"
+            android:paddingStart="15dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="60dp"
+            android:paddingBottom="15dp"
+            android:text="@{outputText}"
+            android:textColor="@color/white"
+            android:textIsSelectable="true"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_input_layout" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/from_language"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="自动识别"
+            app:layout_constraintEnd_toStartOf="@id/to_language"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result_for_translate" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/to_language"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="英语"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/from_language"
+            app:layout_constraintTop_toTopOf="@id/from_language" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/perform_translation_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:text="翻译"
+            app:layout_constraintBottom_toBottomOf="@id/text_input_layout"
+            app:layout_constraintEnd_toEndOf="@id/text_input_layout" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/play_audio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/icon_voice_light"
+            app:layout_constraintEnd_toEndOf="@id/result_for_translate"
+            app:layout_constraintTop_toTopOf="@id/result_for_translate" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/historical_record_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/icon_historical_record"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/audio_recorder_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="120dp"
+            android:background="@drawable/shape_round_button_background"
+            android:elevation="10dp"
+            android:padding="10dp"
+            android:src="@drawable/icon_audio_recorder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <View
+            android:id="@+id/overlay_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#70000000"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:focusable="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_recording_animation"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:background="@drawable/shape_recording_animation_background"
+            android:elevation="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/recording"
+            app:lottie_speed="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

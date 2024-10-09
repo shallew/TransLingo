@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Translate" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Translate" parent="Base.Theme.Translate" />
+
+    <style name="MyTextViewStyle" parent="Widget.AppCompat.TextView">
+<!--        <item name="android:textSelectHandleLeft">@drawable/custom_text_select_handle_left</item>-->
+<!--        <item name="android:textSelectHandleRight">@drawable/custom_text_select_handle_right</item>-->
+<!--        <item name="android:textSelectHandle">@drawable/custom_text_select_handle_middle</item>-->
+<!--        <item name="android:textSelectHandleWindowStyle">@style/Widget.AppCompat.PopupWindow</item>-->
+        <item name="android:textColorHighlight">@color/custom_text_highlight_color</item>
+    </style>
+</resources>
